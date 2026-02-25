@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 93%;
+    --foreground: 0 0% 5%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 5%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 5%;
+
+    --primary: 66 100% 50%;
+    --primary-foreground: 0 0% 5%;
+
+    --secondary: 220 20% 25%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 60 20% 80%;
+    --muted-foreground: 0 0% 35%;
+
+    --accent: 66 100% 50%;
+    --accent-foreground: 0 0% 5%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 5%;
+    --input: 0 0% 5%;
+    --ring: 0 0% 5%;
+
+    --radius: 0px;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Custom tokens */
+    --brutalist-border: 3px solid hsl(0 0% 5%);
+    --brutalist-shadow: 4px 4px 0px hsl(0 0% 5%);
+    --navy: 220 30% 20%;
+    --navy-foreground: 0 0% 95%;
+    --olive: 55 30% 78%;
+    --terminal-bg: 160 20% 15%;
+    --terminal-fg: 120 60% 70%;
+  }
+
+  .dark {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 93%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 93%;
+    --primary: 66 100% 50%;
+    --primary-foreground: 0 0% 5%;
+    --secondary: 220 20% 25%;
+    --secondary-foreground: 0 0% 98%;
+    --border: 0 0% 30%;
+    --input: 0 0% 30%;
+    --ring: 66 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer utilities {
+  .brutalist-card {
+    border: 3px solid hsl(var(--foreground));
+    box-shadow: 4px 4px 0px hsl(var(--foreground));
+  }
+
+  .brutalist-card-sm {
+    border: 2px solid hsl(var(--foreground));
+    box-shadow: 3px 3px 0px hsl(var(--foreground));
+  }
+
+  .font-display {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .font-mono-code {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Terminal cursor animations */
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  @keyframes typing-cursor {
+    0%, 100% { border-right-color: hsl(var(--primary)); }
+    50% { border-right-color: transparent; }
+  }
+
+  @keyframes scanline {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+
+  .animate-blink-cursor {
+    animation: blink 1s step-end infinite;
+  }
+
+  .terminal-scanline::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: scanline 4s linear infinite;
+    pointer-events: none;
+  }
+}
