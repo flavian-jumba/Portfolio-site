@@ -44,8 +44,7 @@ const Header = () => {
         })}
         <a
           href="/Flavian_Jumba_Resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
+          download="Flavian_Jumba_Resume.pdf"
           className="bg-primary px-4 lg:px-6 py-2 brutalist-card-sm hover:bg-yellow-300 transition-colors"
         >
           Resume
@@ -82,8 +81,7 @@ const Header = () => {
             })}
             <a
               href="/Flavian_Jumba_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+              download="Flavian_Jumba_Resume.pdf"
               className="brutalist-card bg-primary p-4 text-lg sm:text-xl font-bold uppercase text-center mt-2"
             >
               Download Resume
